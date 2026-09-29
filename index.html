@@ -1,548 +1,3555 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-  <title>VIIBGYOR — Discover. Watch. Own.</title>
+<meta charset="UTF-8">
 
-  <meta name="description"
-    content="VIIBGYOR is a next-generation live commerce platform where products, creators and communities come together.">
+<meta name="viewport"
+      content="width=device-width, initial-scale=1.0">
 
-  <meta name="theme-color" content="#f7f7f5">
+<meta name="theme-color" content="#ffffff">
 
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<title>VIIBGYOR — Discover. Watch. Own.</title>
 
-  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Manrope:wght@500;600;700;800&display=swap" rel="stylesheet">
+<meta name="description"
+content="VIIBGYOR is a modern marketplace where you discover products through live shopping, creators, reels and community.">
 
-  <link rel="stylesheet" href="style.css">
+<meta name="keywords"
+content="VIIBGYOR, live commerce, shopping, marketplace, reels shopping, creators, fashion, sneakers, collectibles">
+
+<meta name="robots" content="index, follow">
+
+<link rel="canonical"
+href="https://harshwebstudio.github.io/VIIBGYOR/">
+
+<link rel="preconnect"
+      href="https://fonts.googleapis.com">
+
+<link rel="preconnect"
+      href="https://fonts.gstatic.com"
+      crossorigin>
+
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap"
+      rel="stylesheet">
+
+<link rel="stylesheet"
+      href="style.css">
+
 </head>
 
 <body>
 
-  <!-- NAVBAR -->
 
-  <header class="navbar">
+<!-- =====================================================
+     NAVBAR
+===================================================== -->
 
-    <a href="#" class="brand">
-      <img src="images/logo.jpg" alt="VIIBGYOR">
-    </a>
+<header class="navbar">
 
-    <button class="menu-toggle" id="menuToggle">
-      ☰
-    </button>
+    <div class="nav-inner">
 
-    <nav id="navMenu">
-      <a href="#live">Live</a>
-      <a href="#discover">Discover</a>
-      <a href="#creators">Creators</a>
-      <a href="#sell">Sell</a>
-      <a href="#about">About</a>
+        <a href="#home"
+           class="brand">
 
-      <a href="#live" class="nav-button">
-        Explore Live
-      </a>
-    </nav>
+            <img src="images/logo.jpg"
+                 alt="VIIBGYOR Logo">
 
-  </header>
+        </a>
 
 
-  <!-- HERO -->
+        <nav class="nav-links"
+             id="navMenu">
 
-  <main>
+            <a href="#live">
+                Live
+            </a>
 
-    <section class="hero">
+            <a href="#reels">
+                Reels
+            </a>
 
-      <div class="hero-content">
+            <a href="#shop">
+                Shop
+            </a>
 
-        <span class="eyebrow">
-          THE NEXT GENERATION OF LIVE COMMERCE
-        </span>
+            <a href="#creators">
+                Creators
+            </a>
 
-        <h1>
-          Discover.<br>
-          Watch.<br>
-          <span>Own.</span>
-        </h1>
+            <a href="#sell">
+                Sell
+            </a>
 
-        <p>
-          A new way to discover products through live creators,
-          real communities and experiences worth watching.
-        </p>
+            <a href="#about">
+                About
+            </a>
 
-        <div class="hero-actions">
+        </nav>
 
-          <a href="#live" class="primary-button">
-            Explore Live →
-          </a>
 
-          <a href="#sell" class="secondary-button">
-            Become a Seller
-          </a>
+        <div class="nav-actions">
+
+            <button class="icon-btn"
+                    onclick="openSearch()"
+                    aria-label="Search">
+
+                🔎
+
+            </button>
+
+
+            <button class="icon-btn"
+                    onclick="openWishlist()"
+                    aria-label="Wishlist">
+
+                ♡
+
+                <span id="wishlistCount">
+                    0
+                </span>
+
+            </button>
+
+
+            <button class="cart-btn"
+                    onclick="openCart()">
+
+                🛒
+
+                <span id="cartCount">
+                    0
+                </span>
+
+            </button>
+
+
+            <button class="menu-btn"
+                    id="menuToggle"
+                    aria-label="Menu">
+
+                ☰
+
+            </button>
 
         </div>
+
+    </div>
+
+</header>
+
+
+
+<!-- =====================================================
+     SEARCH OVERLAY
+===================================================== -->
+
+<div class="search-overlay"
+     id="searchOverlay">
+
+    <div class="search-box">
+
+        <button class="close-btn"
+                onclick="closeSearch()">
+
+            ×
+
+        </button>
+
+
+        <h2>
+            What are you looking for?
+        </h2>
+
+
+        <div class="search-input-wrap">
+
+            <input
+                type="text"
+                id="searchInput"
+                placeholder="Search sneakers, fashion, collectibles...">
+
+
+            <button onclick="performSearch()">
+
+                Search
+
+            </button>
+
+        </div>
+
+
+        <p id="searchMessage"></p>
+
+    </div>
+
+</div>
+
+
+
+<!-- =====================================================
+     MAIN CONTENT
+===================================================== -->
+
+<main>
+
+
+<!-- =====================================================
+     HERO
+===================================================== -->
+
+<section class="hero"
+         id="home">
+
+    <div class="hero-content">
+
+        <span class="eyebrow">
+            THE NEW WAY TO SHOP
+        </span>
+
+
+        <h1>
+
+            Discover.<br>
+
+            Watch.<br>
+
+            <span>
+                Own.
+            </span>
+
+        </h1>
+
+
+        <p>
+
+            Discover products through creators,
+            live shows, reels and communities
+            built around what you love.
+
+        </p>
+
+
+        <div class="hero-buttons">
+
+            <a href="#live"
+               class="primary-btn">
+
+                Explore Live
+
+            </a>
+
+
+            <a href="#shop"
+               class="secondary-btn">
+
+                Shop Products
+
+            </a>
+
+        </div>
+
 
         <div class="hero-stats">
 
-          <div>
-            <strong>LIVE</strong>
-            <span>Interactive shopping</span>
-          </div>
-
-          <div>
-            <strong>CREATORS</strong>
-            <span>Real people. Real taste.</span>
-          </div>
-
-          <div>
-            <strong>COMMUNITY</strong>
-            <span>Discover together</span>
-          </div>
-
-        </div>
-
-      </div>
-
-
-      <div class="hero-visual">
-
-        <div class="orb orb-one"></div>
-        <div class="orb orb-two"></div>
-
-        <div class="live-card">
-
-          <div class="live-top">
-
-            <span class="live-badge">
-              ● LIVE
-            </span>
-
-            <span>
-              1.8K watching
-            </span>
-
-          </div>
-
-          <div class="product-visual">
-            <div class="product-shape"></div>
-          </div>
-
-          <div class="live-info">
-
             <div>
-              <span>LIVE DROP</span>
 
-              <h3>
-                Street Culture
-              </h3>
+                <strong>
+                    LIVE
+                </strong>
+
+                <span>
+                    Shopping
+                </span>
+
             </div>
 
+
+            <div>
+
+                <strong>
+                    REELS
+                </strong>
+
+                <span>
+                    Discovery
+                </span>
+
+            </div>
+
+
+            <div>
+
+                <strong>
+                    COMMUNITY
+                </strong>
+
+                <span>
+                    Creators
+                </span>
+
+            </div>
+
+        </div>
+
+    </div>
+
+
+
+    <div class="hero-visual">
+
+
+        <div class="floating-card card-one">
+
+            <span>
+                LIVE NOW
+            </span>
+
             <strong>
-              ₹2,499
+                Streetwear Drop
             </strong>
 
-          </div>
-
-          <button class="watch-button">
-            Watch Live →
-          </button>
+            <small>
+                2.4K watching
+            </small>
 
         </div>
 
-      </div>
-
-    </section>
 
 
-    <!-- LIVE -->
+        <div class="hero-product">
 
-    <section class="section" id="live">
+            <div class="product-glow"></div>
 
-      <div class="section-heading">
+
+            <span class="live-badge">
+
+                ● LIVE
+
+            </span>
+
+
+            <div class="product-placeholder">
+
+                VIIBGYOR
+
+            </div>
+
+
+            <div class="hero-product-info">
+
+                <div>
+
+                    <span>
+                        FEATURED DROP
+                    </span>
+
+                    <h3>
+                        Limited Streetwear
+                    </h3>
+
+                </div>
+
+
+                <strong>
+                    ₹1,999
+                </strong>
+
+            </div>
+
+        </div>
+
+
+
+        <div class="floating-card card-two">
+
+            <span>
+                CREATOR PICK
+            </span>
+
+            <strong>
+                Trending Now
+            </strong>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+
+<!-- =====================================================
+     LIVE SECTION
+===================================================== -->
+
+<section class="section"
+         id="live">
+
+    <div class="section-heading">
 
         <div>
-          <span class="eyebrow">
-            HAPPENING NOW
-          </span>
 
-          <h2>
-            Live right now.
-          </h2>
+            <span class="section-label">
+                LIVE COMMERCE
+            </span>
+
+            <h2>
+                Watch it live.
+            </h2>
+
         </div>
 
-        <a href="#" class="text-link">
-          View all →
+
+        <a href="#live"
+           class="text-link">
+
+            View all →
+
         </a>
 
-      </div>
+    </div>
 
 
-      <div class="live-grid">
-
-        <article class="show-card">
-
-          <div class="show-image fashion">
-            <span class="live-badge">● LIVE</span>
-            <span class="viewer-count">842 watching</span>
-          </div>
-
-          <div class="show-content">
-
-            <span>FASHION</span>
-
-            <h3>
-              Streetwear Drop
-            </h3>
-
-            <p>
-              Hosted by @arjunstyle
-            </p>
-
-            <button>
-              Join Live →
-            </button>
-
-          </div>
-
-        </article>
+    <div class="live-grid">
 
 
-        <article class="show-card">
+        <article class="live-card">
 
-          <div class="show-image sneakers">
-            <span class="live-badge">● LIVE</span>
-            <span class="viewer-count">1.2K watching</span>
-          </div>
+            <div class="live-image live-fashion">
 
-          <div class="show-content">
+                <span class="live-now">
+                    ● LIVE
+                </span>
 
-            <span>SNEAKERS</span>
+                <span class="viewers">
+                    2.4K watching
+                </span>
 
-            <h3>
-              Sneaker Hunt
-            </h3>
+                <div class="live-visual-text">
+                    STREETWEAR
+                </div>
 
-            <p>
-              Hosted by @kickculture
-            </p>
+            </div>
 
-            <button>
-              Join Live →
-            </button>
 
-          </div>
+            <div class="live-info">
+
+                <div>
+
+                    <span>
+                        Urban Streetwear
+                    </span>
+
+                    <h3>
+                        Streetwear Drop
+                    </h3>
+
+                </div>
+
+
+                <button
+                    onclick="openLive('Streetwear Drop')">
+
+                    Watch
+
+                </button>
+
+            </div>
 
         </article>
 
 
-        <article class="show-card">
 
-          <div class="show-image collectibles">
-            <span class="live-badge">● LIVE</span>
-            <span class="viewer-count">519 watching</span>
-          </div>
+        <article class="live-card">
 
-          <div class="show-content">
+            <div class="live-image live-sneaker">
 
-            <span>COLLECTIBLES</span>
+                <span class="live-now">
+                    ● LIVE
+                </span>
 
-            <h3>
-              Collector's Vault
-            </h3>
+                <span class="viewers">
+                    1.8K watching
+                </span>
 
-            <p>
-              Hosted by @thecollector
-            </p>
+                <div class="live-visual-text">
+                    SNEAKERS
+                </div>
 
-            <button>
-              Join Live →
-            </button>
+            </div>
 
-          </div>
+
+            <div class="live-info">
+
+                <div>
+
+                    <span>
+                        SneakerHub
+                    </span>
+
+                    <h3>
+                        Sneaker Discovery
+                    </h3>
+
+                </div>
+
+
+                <button
+                    onclick="openLive('Sneaker Discovery')">
+
+                    Watch
+
+                </button>
+
+            </div>
 
         </article>
 
-      </div>
-
-    </section>
 
 
-    <!-- DISCOVER -->
+        <article class="live-card">
 
-    <section class="section discover-section" id="discover">
+            <div class="live-image live-collect">
 
-      <div class="section-heading">
+                <span class="live-now">
+                    ● LIVE
+                </span>
+
+                <span class="viewers">
+                    936 watching
+                </span>
+
+                <div class="live-visual-text">
+                    COLLECT
+                </div>
+
+            </div>
+
+
+            <div class="live-info">
+
+                <div>
+
+                    <span>
+                        Collector's Vault
+                    </span>
+
+                    <h3>
+                        Collector's Vault
+                    </h3>
+
+                </div>
+
+
+                <button
+                    onclick="openLive('Collector’s Vault')">
+
+                    Watch
+
+                </button>
+
+            </div>
+
+        </article>
+
+    </div>
+
+          </section>
+          <!-- =====================================================
+     REELS SECTION
+===================================================== -->
+
+<section class="section section-soft"
+         id="reels">
+
+    <div class="section-heading">
 
         <div>
-          <span class="eyebrow">
-            DISCOVER
-          </span>
 
-          <h2>
-            Find your next obsession.
-          </h2>
-        </div>
+            <span class="section-label">
+                CREATOR DISCOVERY
+            </span>
 
-      </div>
-
-
-      <div class="category-grid">
-
-        <a href="#" class="category fashion-category">
-          <span>01</span>
-          <h3>Fashion</h3>
-          <small>Explore →</small>
-        </a>
-
-        <a href="#" class="category sneaker-category">
-          <span>02</span>
-          <h3>Sneakers</h3>
-          <small>Explore →</small>
-        </a>
-
-        <a href="#" class="category collectible-category">
-          <span>03</span>
-          <h3>Collectibles</h3>
-          <small>Explore →</small>
-        </a>
-
-        <a href="#" class="category creator-category">
-          <span>04</span>
-          <h3>Creator Picks</h3>
-          <small>Explore →</small>
-        </a>
-
-      </div>
-
-    </section>
-
-
-    <!-- CREATORS -->
-
-    <section class="creator-section" id="creators">
-
-      <div class="creator-inner">
-
-        <div class="creator-copy">
-
-          <span class="eyebrow">
-            FOR CREATORS
-          </span>
-
-          <h2>
-            Your audience.<br>
-            Your taste.<br>
-            Your commerce.
-          </h2>
-
-          <p>
-            Turn your influence into an interactive shopping
-            experience. Discover products, host live shows and
-            build your community around what you love.
-          </p>
-
-          <a href="#creator-form" class="primary-button">
-            Become a Creator →
-          </a>
+            <h2>
+                See it. Want it.
+            </h2>
 
         </div>
 
 
-        <div class="creator-panel">
+        <a href="#reels"
+           class="text-link">
 
-          <div class="creator-avatar">
-            V
-          </div>
+            Explore reels →
 
-          <div>
+        </a>
 
-            <span>CREATOR</span>
+    </div>
+
+
+    <div class="reels-grid">
+
+
+        <article class="reel-card"
+                 onclick="openReel('Oversized Streetwear')">
+
+            <div class="reel-image reel-one">
+
+                <span class="reel-tag">
+                    REEL
+                </span>
+
+                <span class="reel-play">
+                    ▶
+                </span>
+
+
+                <div class="reel-product-text">
+                    OVERSIZED
+                </div>
+
+
+                <div class="reel-bottom">
+
+                    <strong>
+                        Oversized Streetwear
+                    </strong>
+
+                    <span>
+                        ₹999
+                    </span>
+
+                </div>
+
+            </div>
+
+        </article>
+
+
+
+        <article class="reel-card"
+                 onclick="openReel('Limited Edition Sneakers')">
+
+            <div class="reel-image reel-two">
+
+                <span class="reel-tag">
+                    REEL
+                </span>
+
+                <span class="reel-play">
+                    ▶
+                </span>
+
+
+                <div class="reel-product-text">
+                    SNEAKERS
+                </div>
+
+
+                <div class="reel-bottom">
+
+                    <strong>
+                        Limited Edition Sneakers
+                    </strong>
+
+                    <span>
+                        ₹2,499
+                    </span>
+
+                </div>
+
+            </div>
+
+        </article>
+
+
+
+        <article class="reel-card"
+                 onclick="openReel('Collector Pick')">
+
+            <div class="reel-image reel-three">
+
+                <span class="reel-tag">
+                    REEL
+                </span>
+
+                <span class="reel-play">
+                    ▶
+                </span>
+
+
+                <div class="reel-product-text">
+                    COLLECT
+                </div>
+
+
+                <div class="reel-bottom">
+
+                    <strong>
+                        Collector Pick
+                    </strong>
+
+                    <span>
+                        ₹1,799
+                    </span>
+
+                </div>
+
+            </div>
+
+        </article>
+
+    </div>
+
+</section>
+
+
+
+<!-- =====================================================
+     SHOP / CATEGORIES
+===================================================== -->
+
+<section class="section"
+         id="shop">
+
+    <div class="section-heading">
+
+        <div>
+
+            <span class="section-label">
+                SHOP
+            </span>
+
+            <h2>
+                Find your category.
+            </h2>
+
+        </div>
+
+    </div>
+
+
+    <div class="category-grid">
+
+
+        <button class="category-card category-fashion"
+                onclick="filterCategory('Fashion')">
+
+            <span class="category-number">
+                01
+            </span>
+
+            <div>
+
+                <span>
+                    STYLE
+                </span>
+
+                <h3>
+                    Fashion
+                </h3>
+
+            </div>
+
+            <span class="category-arrow">
+                →
+            </span>
+
+        </button>
+
+
+
+        <button class="category-card category-sneakers"
+                onclick="filterCategory('Sneakers')">
+
+            <span class="category-number">
+                02
+            </span>
+
+            <div>
+
+                <span>
+                    FOOTWEAR
+                </span>
+
+                <h3>
+                    Sneakers
+                </h3>
+
+            </div>
+
+            <span class="category-arrow">
+                →
+            </span>
+
+        </button>
+
+
+
+        <button class="category-card category-collectibles"
+                onclick="filterCategory('Collectibles')">
+
+            <span class="category-number">
+                03
+            </span>
+
+            <div>
+
+                <span>
+                    RARE FINDS
+                </span>
+
+                <h3>
+                    Collectibles
+                </h3>
+
+            </div>
+
+            <span class="category-arrow">
+                →
+            </span>
+
+        </button>
+
+
+
+        <button class="category-card category-creators"
+                onclick="filterCategory('Creator Picks')">
+
+            <span class="category-number">
+                04
+            </span>
+
+            <div>
+
+                <span>
+                    CURATED
+                </span>
+
+                <h3>
+                    Creator Picks
+                </h3>
+
+            </div>
+
+            <span class="category-arrow">
+                →
+            </span>
+
+        </button>
+
+    </div>
+
+</section>
+
+
+
+<!-- =====================================================
+     FEATURED PRODUCTS
+===================================================== -->
+
+<section class="section section-soft"
+         id="featured">
+
+    <div class="section-heading">
+
+        <div>
+
+            <span class="section-label">
+                FEATURED PRODUCTS
+            </span>
+
+            <h2>
+                Trending right now.
+            </h2>
+
+        </div>
+
+
+        <a href="#shop"
+           class="text-link">
+
+            View shop →
+
+        </a>
+
+    </div>
+
+
+    <div class="products-grid"
+         id="productsGrid">
+
+
+        <!-- PRODUCT 1 -->
+
+        <article class="product-card"
+                 data-category="Fashion">
+
+            <div class="product-image product-image-one">
+
+                <span class="product-badge">
+                    TRENDING
+                </span>
+
+
+                <button class="wishlist-product"
+                        onclick="toggleWishlist(1, event)"
+                        aria-label="Add to wishlist">
+
+                    ♡
+
+                </button>
+
+
+                <div class="product-art">
+
+                    VY
+
+                </div>
+
+            </div>
+
+
+            <div class="product-details">
+
+                <span class="product-category">
+                    Fashion
+                </span>
+
+                <h3>
+                    Oversized Essential Tee
+                </h3>
+
+
+                <div class="product-meta">
+
+                    <strong>
+                        ₹999
+                    </strong>
+
+                    <button
+                        onclick="openProduct(1)">
+
+                        View →
+
+                    </button>
+
+                </div>
+
+            </div>
+
+        </article>
+
+
+
+        <!-- PRODUCT 2 -->
+
+        <article class="product-card"
+                 data-category="Sneakers">
+
+            <div class="product-image product-image-two">
+
+                <span class="product-badge">
+                    CREATOR PICK
+                </span>
+
+
+                <button class="wishlist-product"
+                        onclick="toggleWishlist(2, event)"
+                        aria-label="Add to wishlist">
+
+                    ♡
+
+                </button>
+
+
+                <div class="product-art">
+
+                    VY
+
+                </div>
+
+            </div>
+
+
+            <div class="product-details">
+
+                <span class="product-category">
+                    Sneakers
+                </span>
+
+                <h3>
+                    Street Runner X1
+                </h3>
+
+
+                <div class="product-meta">
+
+                    <strong>
+                        ₹2,499
+                    </strong>
+
+                    <button
+                        onclick="openProduct(2)">
+
+                        View →
+
+                    </button>
+
+                </div>
+
+            </div>
+
+        </article>
+
+
+
+        <!-- PRODUCT 3 -->
+
+        <article class="product-card"
+                 data-category="Collectibles">
+
+            <div class="product-image product-image-three">
+
+                <span class="product-badge">
+                    RARE
+                </span>
+
+
+                <button class="wishlist-product"
+                        onclick="toggleWishlist(3, event)"
+                        aria-label="Add to wishlist">
+
+                    ♡
+
+                </button>
+
+
+                <div class="product-art">
+
+                    VY
+
+                </div>
+
+            </div>
+
+
+            <div class="product-details">
+
+                <span class="product-category">
+                    Collectibles
+                </span>
+
+                <h3>
+                    Limited Collector Piece
+                </h3>
+
+
+                <div class="product-meta">
+
+                    <strong>
+                        ₹1,799
+                    </strong>
+
+                    <button
+                        onclick="openProduct(3)">
+
+                        View →
+
+                    </button>
+
+                </div>
+
+            </div>
+
+        </article>
+
+
+
+        <!-- PRODUCT 4 -->
+
+        <article class="product-card"
+                 data-category="Creator Picks">
+
+            <div class="product-image product-image-four">
+
+                <span class="product-badge">
+                    NEW DROP
+                </span>
+
+
+                <button class="wishlist-product"
+                        onclick="toggleWishlist(4, event)"
+                        aria-label="Add to wishlist">
+
+                    ♡
+
+                </button>
+
+
+                <div class="product-art">
+
+                    VY
+
+                </div>
+
+            </div>
+
+
+            <div class="product-details">
+
+                <span class="product-category">
+                    Creator Picks
+                </span>
+
+                <h3>
+                    Everyday Utility Pack
+                </h3>
+
+
+                <div class="product-meta">
+
+                    <strong>
+                        ₹3,499
+                    </strong>
+
+                    <button
+                        onclick="openProduct(4)">
+
+                        View →
+
+                    </button>
+
+                </div>
+
+            </div>
+
+        </article>
+
+    </div>
+
+
+    <div class="products-empty"
+         id="productsEmpty">
+
+        <h3>
+            No products found
+        </h3>
+
+        <p>
+            Try another category.
+        </p>
+
+    </div>
+
+</section>
+
+
+
+<!-- =====================================================
+     CREATORS SECTION
+===================================================== -->
+
+<section class="section"
+         id="creators">
+
+    <div class="creator-layout">
+
+
+        <div class="creator-content">
+
+            <span class="section-label">
+                CREATORS
+            </span>
+
+
+            <h2>
+                Creators don't just
+                influence. They sell.
+            </h2>
+
+
+            <p>
+
+                Build your audience, discover products
+                you genuinely like and turn your content
+                into a shopping experience.
+
+            </p>
+
+
+            <div class="creator-points">
+
+                <div>
+
+                    <span>
+                        01
+                    </span>
+
+                    <div>
+
+                        <strong>
+                            Create
+                        </strong>
+
+                        <p>
+                            Make reels and live shows
+                            around products.
+                        </p>
+
+                    </div>
+
+                </div>
+
+
+                <div>
+
+                    <span>
+                        02
+                    </span>
+
+                    <div>
+
+                        <strong>
+                            Connect
+                        </strong>
+
+                        <p>
+                            Build a community around
+                            your interests.
+                        </p>
+
+                    </div>
+
+                </div>
+
+
+                <div>
+
+                    <span>
+                        03
+                    </span>
+
+                    <div>
+
+                        <strong>
+                            Earn
+                        </strong>
+
+                        <p>
+                            Earn eligible commissions
+                            from attributed purchases.
+                        </p>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <button class="primary-btn"
+                    onclick="openCreatorForm()">
+
+                Become a Creator
+
+            </button>
+
+        </div>
+
+
+
+        <div class="creator-visual">
+
+            <div class="creator-card">
+
+                <span class="creator-live-dot">
+                    ● LIVE
+                </span>
+
+
+                <div class="creator-avatar">
+                    V
+                </div>
+
+
+                <h3>
+                    Your Creator Profile
+                </h3>
+
+
+                <p>
+                    Reels • Live • Community
+                </p>
+
+
+                <div class="creator-mini-stats">
+
+                    <div>
+
+                        <strong>
+                            12.4K
+                        </strong>
+
+                        <span>
+                            Followers
+                        </span>
+
+                    </div>
+
+
+                    <div>
+
+                        <strong>
+                            348
+                        </strong>
+
+                        <span>
+                            Sales
+                        </span>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+
+<!-- =====================================================
+     SELLER SECTION
+===================================================== -->
+
+<section class="section seller-section"
+         id="sell">
+
+    <div class="seller-layout">
+
+
+        <div class="seller-visual">
+
+            <div class="seller-dashboard-card">
+
+                <span class="dashboard-label">
+                    SELLER DASHBOARD
+                </span>
+
+
+                <div class="dashboard-number">
+                    ₹48,590
+                </div>
+
+
+                <span class="dashboard-caption">
+                    Sample monthly sales
+                </span>
+
+
+                <div class="dashboard-bars">
+
+                    <i></i>
+                    <i></i>
+                    <i></i>
+                    <i></i>
+                    <i></i>
+                    <i></i>
+                    <i></i>
+
+                </div>
+
+
+                <div class="dashboard-bottom">
+
+                    <span>
+                        Products
+                    </span>
+
+                    <strong>
+                        126
+                    </strong>
+
+                </div>
+
+            </div>
+
+        </div>
+
+
+
+        <div class="seller-content">
+
+            <span class="section-label">
+                SELL ON VIIBGYOR
+            </span>
+
+
+            <h2>
+                Turn your products
+                into experiences.
+            </h2>
+
+
+            <p>
+
+                List your products, join live shows,
+                work with creators and reach shoppers
+                who discover products through content.
+
+            </p>
+
+
+            <div class="seller-features">
+
+                <div>
+
+                    <span>
+                        ✓
+                    </span>
+
+                    <strong>
+                        Product listings
+                    </strong>
+
+                </div>
+
+
+                <div>
+
+                    <span>
+                        ✓
+                    </span>
+
+                    <strong>
+                        Live commerce
+                    </strong>
+
+                </div>
+
+
+                <div>
+
+                    <span>
+                        ✓
+                    </span>
+
+                    <strong>
+                        Creator collaborations
+                    </strong>
+
+                </div>
+
+
+                <div>
+
+                    <span>
+                        ✓
+                    </span>
+
+                    <strong>
+                        Orders & analytics
+                    </strong>
+
+                </div>
+
+            </div>
+
+
+            <button class="primary-btn"
+                    onclick="openSellerForm()">
+
+                Start Selling
+
+            </button>
+
+        </div>
+
+    </div>
+
+  </section>
+  <!-- =====================================================
+     HOW VIIBGYOR WORKS
+===================================================== -->
+
+<section class="section"
+         id="about">
+
+    <div class="section-heading">
+
+        <div>
+
+            <span class="section-label">
+                HOW IT WORKS
+            </span>
+
+            <h2>
+                Shopping, reimagined.
+            </h2>
+
+        </div>
+
+    </div>
+
+
+    <div class="steps-grid">
+
+
+        <div class="step-card">
+
+            <span class="step-number">
+                01
+            </span>
+
+            <div class="step-icon">
+                ◇
+            </div>
 
             <h3>
-              @yourhandle
+                Discover
             </h3>
 
             <p>
-              Build. Stream. Discover.
+                Find products through live shows,
+                reels, creators and the shop.
             </p>
-
-          </div>
 
         </div>
 
-      </div>
-
-    </section>
 
 
-    <!-- SELL -->
+        <div class="step-card">
 
-    <section class="section sell-section" id="sell">
+            <span class="step-number">
+                02
+            </span>
 
-      <div class="sell-box">
+            <div class="step-icon">
+                ◉
+            </div>
 
-        <span class="eyebrow">
-          FOR SELLERS
+            <h3>
+                Watch
+            </h3>
+
+            <p>
+                Watch creators and sellers demonstrate
+                products in real-time.
+            </p>
+
+        </div>
+
+
+
+        <div class="step-card">
+
+            <span class="step-number">
+                03
+            </span>
+
+            <div class="step-icon">
+                +
+            </div>
+
+            <h3>
+                Interact
+            </h3>
+
+            <p>
+                Ask questions, explore products and
+                connect through the marketplace.
+            </p>
+
+        </div>
+
+
+
+        <div class="step-card">
+
+            <span class="step-number">
+                04
+            </span>
+
+            <div class="step-icon">
+                ✓
+            </div>
+
+            <h3>
+                Own
+            </h3>
+
+            <p>
+                Choose your product, checkout securely
+                and track your order.
+            </p>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+
+<!-- =====================================================
+     MARKETPLACE ECOSYSTEM
+===================================================== -->
+
+<section class="ecosystem-section">
+
+    <div class="ecosystem-heading">
+
+        <span class="section-label">
+            ONE MARKETPLACE
         </span>
 
         <h2>
-          Put your products<br>
-          in front of real people.
+            Everyone has a role.
         </h2>
 
         <p>
-          Join the next generation of live commerce and
-          connect your products with creators and communities.
+            VIIBGYOR brings buyers, sellers and creators
+            into one connected commerce ecosystem.
         </p>
 
-        <a href="#seller-form" class="primary-button">
-          Become a Seller →
-        </a>
-
-      </div>
-
-    </section>
+    </div>
 
 
-    <!-- HOW IT WORKS -->
+    <div class="ecosystem-grid">
 
-    <section class="section" id="about">
 
-      <div class="section-heading">
+        <div class="ecosystem-card">
+
+            <span class="ecosystem-number">
+                01
+            </span>
+
+            <div class="ecosystem-symbol">
+                B
+            </div>
+
+            <h3>
+                Buyer
+            </h3>
+
+            <p>
+                Discover products, watch content,
+                interact and shop.
+            </p>
+
+            <span class="ecosystem-flow">
+                DISCOVER → BUY
+            </span>
+
+        </div>
+
+
+
+        <div class="ecosystem-card">
+
+            <span class="ecosystem-number">
+                02
+            </span>
+
+            <div class="ecosystem-symbol">
+                S
+            </div>
+
+            <h3>
+                Seller
+            </h3>
+
+            <p>
+                List products, manage orders and
+                reach customers.
+            </p>
+
+            <span class="ecosystem-flow">
+                LIST → SELL
+            </span>
+
+        </div>
+
+
+
+        <div class="ecosystem-card">
+
+            <span class="ecosystem-number">
+                03
+            </span>
+
+            <div class="ecosystem-symbol">
+                C
+            </div>
+
+            <h3>
+                Creator
+            </h3>
+
+            <p>
+                Create content, host live shows and
+                participate in eligible commerce programs.
+            </p>
+
+            <span class="ecosystem-flow">
+                CREATE → EARN
+            </span>
+
+        </div>
+
+
+
+        <div class="ecosystem-card">
+
+            <span class="ecosystem-number">
+                04
+            </span>
+
+            <div class="ecosystem-symbol">
+                V
+            </div>
+
+            <h3>
+                VIIBGYOR
+            </h3>
+
+            <p>
+                Connect the ecosystem with marketplace
+                infrastructure and discovery.
+            </p>
+
+            <span class="ecosystem-flow">
+                CONNECT → SCALE
+            </span>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+
+<!-- =====================================================
+     LIVE SHOPPING EXPERIENCE
+===================================================== -->
+
+<section class="section live-commerce-section">
+
+    <div class="live-commerce-layout">
+
+
+        <div class="live-commerce-content">
+
+            <span class="section-label">
+                LIVE SHOPPING
+            </span>
+
+
+            <h2>
+                Watch products
+                come alive.
+            </h2>
+
+
+            <p>
+
+                Sellers and creators can showcase products
+                during live sessions while viewers discover,
+                ask questions and shop.
+
+            </p>
+
+
+            <div class="live-commerce-points">
+
+                <div>
+
+                    <span>
+                        01
+                    </span>
+
+                    <strong>
+                        Watch
+                    </strong>
+
+                </div>
+
+
+                <div>
+
+                    <span>
+                        02
+                    </span>
+
+                    <strong>
+                        Ask
+                    </strong>
+
+                </div>
+
+
+                <div>
+
+                    <span>
+                        03
+                    </span>
+
+                    <strong>
+                        Shop
+                    </strong>
+
+                </div>
+
+            </div>
+
+        </div>
+
+
+
+        <div class="live-preview">
+
+            <div class="live-preview-header">
+
+                <span class="live-now">
+                    ● LIVE
+                </span>
+
+                <span>
+                    2.4K watching
+                </span>
+
+            </div>
+
+
+            <div class="live-preview-screen">
+
+                <div class="live-preview-logo">
+                    VIIBGYOR
+                </div>
+
+                <span class="live-preview-title">
+                    STREETWEAR DROP
+                </span>
+
+            </div>
+
+
+            <div class="live-preview-product">
+
+                <div>
+
+                    <span>
+                        FEATURED PRODUCT
+                    </span>
+
+                    <h3>
+                        Oversized Essential Tee
+                    </h3>
+
+                    <strong>
+                        ₹999
+                    </strong>
+
+                </div>
+
+
+                <button
+                    class="primary-btn"
+                    onclick="openProduct(1)">
+
+                    Buy Now
+
+                </button>
+
+            </div>
+
+
+            <div class="live-preview-chat">
+
+                <p>
+                    <strong>
+                        Buyer:
+                    </strong>
+                    Is size M available?
+                </p>
+
+                <p>
+                    <strong>
+                        Seller:
+                    </strong>
+                    Yes, available.
+                </p>
+
+                <p>
+                    <strong>
+                        Buyer:
+                    </strong>
+                    How fast is delivery?
+                </p>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+
+<!-- =====================================================
+     AUCTION SECTION
+===================================================== -->
+
+<section class="auction-section"
+         id="auctions">
+
+    <div class="auction-content">
+
+        <span class="section-label">
+            FUTURE OF DISCOVERY
+        </span>
+
+
+        <h2>
+            Discover.
+            Then bid.
+        </h2>
+
+
+        <p>
+
+            VIIBGYOR will support timed live auctions where
+            eligible sellers can create limited product drops
+            and buyers can participate through real-time bidding.
+
+        </p>
+
+
+        <button class="light-btn"
+                onclick="openAuctionInfo()">
+
+            Explore Auctions
+
+        </button>
+
+    </div>
+
+
+
+    <div class="auction-card">
+
+        <div class="auction-card-top">
+
+            <span class="auction-status">
+                AUCTION
+            </span>
+
+            <span>
+                SAMPLE
+            </span>
+
+        </div>
+
+
+        <h3>
+            Limited Collector Drop
+        </h3>
+
+
+        <div class="auction-price">
+
+            <span>
+                CURRENT BID
+            </span>
+
+            <strong>
+                ₹1,500
+            </strong>
+
+        </div>
+
+
+        <div class="auction-timer">
+
+            <div>
+
+                <strong>
+                    00
+                </strong>
+
+                <span>
+                    HRS
+                </span>
+
+            </div>
+
+
+            <div>
+
+                <strong>
+                    18
+                </strong>
+
+                <span>
+                    MIN
+                </span>
+
+            </div>
+
+
+            <div>
+
+                <strong>
+                    42
+                </strong>
+
+                <span>
+                    SEC
+                </span>
+
+            </div>
+
+        </div>
+
+
+        <div class="bid-history">
+
+            <div>
+
+                <span>
+                    Bid #01
+                </span>
+
+                <strong>
+                    ₹1,100
+                </strong>
+
+            </div>
+
+
+            <div>
+
+                <span>
+                    Bid #02
+                </span>
+
+                <strong>
+                    ₹1,300
+                </strong>
+
+            </div>
+
+
+            <div>
+
+                <span>
+                    Bid #03
+                </span>
+
+                <strong>
+                    ₹1,500
+                </strong>
+
+            </div>
+
+        </div>
+
+
+        <button class="primary-btn"
+                onclick="openAuctionInfo()">
+
+            Place Bid
+
+        </button>
+
+
+        <small class="auction-note">
+            Auction functionality will be connected
+            to the secure marketplace backend.
+        </small>
+
+    </div>
+
+</section>
+
+
+
+<!-- =====================================================
+     TRUST / SELLER SAFETY
+===================================================== -->
+
+<section class="section trust-section">
+
+    <div class="section-heading">
 
         <div>
 
-          <span class="eyebrow">
-            HOW IT WORKS
-          </span>
+            <span class="section-label">
+                MARKETPLACE TRUST
+            </span>
 
-          <h2>
-            Simple by design.
-          </h2>
-
-        </div>
-
-      </div>
-
-
-      <div class="steps">
-
-        <div class="step">
-
-          <span>01</span>
-
-          <h3>
-            Discover
-          </h3>
-
-          <p>
-            Find products, creators and live shows
-            that match your interests.
-          </p>
+            <h2>
+                Commerce with control.
+            </h2>
 
         </div>
 
+    </div>
 
-        <div class="step">
 
-          <span>02</span>
+    <div class="trust-grid">
 
-          <h3>
-            Watch
-          </h3>
 
-          <p>
-            Join live experiences, interact with creators
-            and see products in action.
-          </p>
+        <div class="trust-card">
+
+            <div class="trust-icon">
+                ✓
+            </div>
+
+            <h3>
+                Verified Sellers
+            </h3>
+
+            <p>
+                Seller verification can help buyers
+                identify trusted marketplace stores.
+            </p>
 
         </div>
 
 
-        <div class="step">
 
-          <span>03</span>
+        <div class="trust-card">
 
-          <h3>
-            Own
-          </h3>
+            <div class="trust-icon">
+                ◉
+            </div>
 
-          <p>
-            Discover something you love and turn
-            the moment into a purchase.
-          </p>
+            <h3>
+                Protected Communication
+            </h3>
+
+            <p>
+                Buyers can communicate through controlled
+                marketplace channels instead of exposing
+                personal seller details.
+            </p>
 
         </div>
 
-      </div>
-
-    </section>
 
 
-    <!-- CTA -->
+        <div class="trust-card">
 
-    <section class="final-cta">
+            <div class="trust-icon">
+                $
+            </div>
 
-      <span class="eyebrow">
+            <h3>
+                Secure Commerce
+            </h3>
+
+            <p>
+                Payments, orders, refunds and payouts
+                will be handled through secure infrastructure.
+            </p>
+
+        </div>
+
+
+
+        <div class="trust-card">
+
+            <div class="trust-icon">
+                ↗
+            </div>
+
+            <h3>
+                Order Tracking
+            </h3>
+
+            <p>
+                Buyers can track order status from
+                purchase through delivery.
+            </p>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+
+<!-- =====================================================
+     FINAL CTA
+===================================================== -->
+
+<section class="final-cta">
+
+    <span class="section-label">
         VIIBGYOR
-      </span>
-
-      <h2>
-        There's always<br>
-        something to discover.
-      </h2>
-
-      <a href="#live" class="primary-button">
-        Explore VIIBGYOR →
-      </a>
-
-    </section>
-
-  </main>
+    </span>
 
 
-  <!-- FOOTER -->
+    <h2>
+        Your next discovery
+        is waiting.
+    </h2>
 
-  <footer>
 
-    <div class="footer-brand">
-
-      <img src="images/logo.png" alt="VIIBGYOR">
-
-      <p>
+    <p>
         Discover. Watch. Own.
-      </p>
+    </p>
+
+
+    <div class="final-actions">
+
+        <a href="#shop"
+           class="primary-btn">
+
+            Start Exploring
+
+        </a>
+
+
+        <button class="secondary-btn"
+                onclick="openSellerForm()">
+
+            Sell on VIIBGYOR
+
+        </button>
+
+    </div>
+
+</section>
+<!-- =====================================================
+     FOOTER
+===================================================== -->
+
+<footer class="site-footer"
+        id="footer">
+
+    <div class="footer-main">
+
+
+        <!-- FOOTER BRAND -->
+
+        <div class="footer-brand">
+
+            <a href="#home"
+               class="footer-logo">
+
+                <img src="images/logo.jpg"
+                     alt="VIIBGYOR Logo">
+
+            </a>
+
+
+            <p>
+                Discover. Watch. Own.
+            </p>
+
+
+            <span>
+                The next generation of commerce.
+            </span>
+
+        </div>
+
+
+
+        <!-- EXPLORE -->
+
+        <div class="footer-column">
+
+            <h4>
+                Explore
+            </h4>
+
+
+            <a href="#home">
+                Home
+            </a>
+
+            <a href="#live">
+                Live
+            </a>
+
+            <a href="#reels">
+                Reels
+            </a>
+
+            <a href="#shop">
+                Shop
+            </a>
+
+            <a href="#creators">
+                Creators
+            </a>
+
+        </div>
+
+
+
+        <!-- SELL -->
+
+        <div class="footer-column">
+
+            <h4>
+                Sell
+            </h4>
+
+
+            <a href="#sell">
+                Sell on VIIBGYOR
+            </a>
+
+
+            <button onclick="openSellerForm()">
+                Seller Registration
+            </button>
+
+
+            <a href="#about">
+                How it works
+            </a>
+
+
+            <button onclick="showToast('Seller support will be connected before production launch.')">
+                Seller Support
+            </button>
+
+        </div>
+
+
+
+        <!-- SUPPORT -->
+
+        <div class="footer-column">
+
+            <h4>
+                Support
+            </h4>
+
+
+            <a href="#about">
+                About VIIBGYOR
+            </a>
+
+
+            <button onclick="showToast('Help Centre will be connected to the support system.')">
+                Help Centre
+            </button>
+
+
+            <button onclick="showToast('Privacy policy page will be connected before production launch.')">
+                Privacy
+            </button>
+
+
+            <button onclick="showToast('Terms page will be connected before production launch.')">
+                Terms
+            </button>
+
+        </div>
 
     </div>
 
 
-    <div class="footer-links">
 
-      <a href="#live">Live</a>
-      <a href="#discover">Discover</a>
-      <a href="#creators">Creators</a>
-      <a href="#sell">Sellers</a>
-
-    </div>
-
+    <!-- FOOTER BOTTOM -->
 
     <div class="footer-bottom">
 
-      <span>
-        © 2026 VIIBGYOR
-      </span>
+        <span>
+            © 2026 VIIBGYOR. All rights reserved.
+        </span>
 
-      <span>
-        Built for discovery.
-      </span>
+
+        <span>
+            Discover. Watch. Own.
+        </span>
 
     </div>
 
-  </footer>
+</footer>
 
 
-  <script src="script.js"></script>
+
+<!-- =====================================================
+     PRODUCT MODAL
+===================================================== -->
+
+<div class="modal"
+     id="productModal"
+     aria-hidden="true">
+
+    <div class="modal-card product-modal-card">
+
+        <button class="modal-close"
+                onclick="closeModal('productModal')"
+                aria-label="Close">
+
+            ×
+
+        </button>
+
+
+        <div class="modal-product-visual">
+
+            <span id="modalProductArt">
+                VIIB
+            </span>
+
+        </div>
+
+
+        <div class="modal-product-content">
+
+            <span class="section-label">
+                PRODUCT
+            </span>
+
+
+            <h2 id="modalProductName">
+                Product Name
+            </h2>
+
+
+            <p id="modalProductCategory">
+                Category
+            </p>
+
+
+            <strong class="modal-price"
+                    id="modalProductPrice">
+
+                ₹0
+
+            </strong>
+
+
+            <div class="modal-divider"></div>
+
+
+            <!-- SELLER PROFILE -->
+
+            <div class="seller-profile-mini">
+
+                <div class="seller-avatar">
+                    S
+                </div>
+
+
+                <div>
+
+                    <strong>
+                        Verified Seller
+                    </strong>
+
+                    <span>
+                        ✓ Verified Seller
+                    </span>
+
+                    <small>
+                        ⭐ 4.8 · Trusted marketplace seller
+                    </small>
+
+                </div>
+
+            </div>
+
+
+            <!-- PRODUCT OPTIONS -->
+
+            <div class="product-options">
+
+                <label>
+                    Select Size
+                </label>
+
+
+                <div class="size-options">
+
+                    <button onclick="selectSize(this)">
+                        S
+                    </button>
+
+                    <button onclick="selectSize(this)">
+                        M
+                    </button>
+
+                    <button onclick="selectSize(this)">
+                        L
+                    </button>
+
+                    <button onclick="selectSize(this)">
+                        XL
+                    </button>
+
+                </div>
+
+            </div>
+
+
+            <!-- ACTIONS -->
+
+            <div class="modal-actions">
+
+                <button class="primary-btn"
+                        onclick="buyCurrentProduct()">
+
+                    Buy Now
+
+                </button>
+
+
+                <button class="secondary-btn"
+                        onclick="addCurrentProductToCart()">
+
+                    Add to Cart
+
+                </button>
+
+            </div>
+
+
+            <!-- SELLER COMMUNICATION -->
+
+            <div class="seller-contact">
+
+                <h3>
+                    Need help?
+                </h3>
+
+
+                <p>
+                    Contact the seller through
+                    VIIBGYOR's controlled communication system.
+                </p>
+
+
+                <div class="seller-contact-buttons">
+
+                    <button onclick="messageSeller()">
+                        💬 Message Seller
+                    </button>
+
+
+                    <button onclick="askSeller()">
+                        ❓ Ask About Product
+                    </button>
+
+
+                    <button onclick="openSellerWhatsapp()">
+                        WhatsApp Business
+                    </button>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</div>
+
+
+
+<!-- =====================================================
+     CART OVERLAY
+===================================================== -->
+
+<div class="drawer-overlay"
+     id="cartOverlay"
+     onclick="closeCart()">
+</div>
+
+
+
+<!-- =====================================================
+     CART DRAWER
+===================================================== -->
+
+<aside class="cart-drawer"
+       id="cartDrawer"
+       aria-hidden="true">
+
+
+    <div class="drawer-header">
+
+        <div>
+
+            <span class="section-label">
+                SHOPPING
+            </span>
+
+            <h2>
+                Your Cart
+            </h2>
+
+        </div>
+
+
+        <button onclick="closeCart()"
+                aria-label="Close cart">
+
+            ×
+
+        </button>
+
+    </div>
+
+
+
+    <div class="cart-items"
+         id="cartItems">
+
+        <div class="empty-state">
+
+            <div class="empty-icon">
+                🛒
+            </div>
+
+            <h3>
+                Your cart is empty.
+            </h3>
+
+            <p>
+                Discover something worth owning.
+            </p>
+
+        </div>
+
+    </div>
+
+
+
+    <div class="cart-footer">
+
+        <div class="cart-total-row">
+
+            <span>
+                Total
+            </span>
+
+            <strong id="cartTotal">
+                ₹0
+            </strong>
+
+        </div>
+
+
+        <button class="primary-btn cart-checkout-btn"
+                onclick="checkout()">
+
+            Proceed to Checkout
+
+        </button>
+
+
+        <small>
+            Secure checkout will be connected
+            to the marketplace backend.
+        </small>
+
+    </div>
+
+</aside>
+
+
+
+<!-- =====================================================
+     WISHLIST MODAL
+===================================================== -->
+
+<div class="modal"
+     id="wishlistModal"
+     aria-hidden="true">
+
+    <div class="modal-card">
+
+        <button class="modal-close"
+                onclick="closeModal('wishlistModal')">
+
+            ×
+
+        </button>
+
+
+        <span class="section-label">
+            SAVED
+        </span>
+
+
+        <h2>
+            Your Wishlist
+        </h2>
+
+
+        <p class="modal-description">
+            Products you save will appear here.
+        </p>
+
+
+        <div id="wishlistItems">
+
+            <div class="empty-state">
+
+                <div class="empty-icon">
+                    ♡
+                </div>
+
+                <h3>
+                    Nothing saved yet.
+                </h3>
+
+                <p>
+                    Tap the heart on a product
+                    to save it here.
+                </p>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</div>
+
+
+
+<!-- =====================================================
+     SELLER REGISTRATION MODAL
+===================================================== -->
+
+<div class="modal"
+     id="sellerModal"
+     aria-hidden="true">
+
+    <div class="modal-card form-card">
+
+        <button class="modal-close"
+                onclick="closeModal('sellerModal')">
+
+            ×
+
+        </button>
+
+
+        <span class="section-label">
+            SELL ON VIIBGYOR
+        </span>
+
+
+        <h2>
+            Start your seller journey.
+        </h2>
+
+
+        <p>
+            Submit your details to begin
+            the seller onboarding process.
+        </p>
+
+
+        <form onsubmit="submitSellerForm(event)">
+
+
+            <div class="form-row">
+
+                <input
+                    required
+                    type="text"
+                    placeholder="Full name">
+
+
+                <input
+                    required
+                    type="text"
+                    placeholder="Store / Business name">
+
+            </div>
+
+
+            <div class="form-row">
+
+                <input
+                    required
+                    type="tel"
+                    placeholder="Mobile number">
+
+
+                <input
+                    required
+                    type="email"
+                    placeholder="Email address">
+
+            </div>
+
+
+            <select required>
+
+                <option value="">
+                    Select category
+                </option>
+
+                <option>
+                    Fashion
+                </option>
+
+                <option>
+                    Sneakers
+                </option>
+
+                <option>
+                    Beauty
+                </option>
+
+                <option>
+                    Collectibles
+                </option>
+
+                <option>
+                    Lifestyle
+                </option>
+
+                <option>
+                    Other
+                </option>
+
+            </select>
+
+
+            <input
+                type="text"
+                placeholder="City / Pickup location">
+
+
+            <textarea
+                required
+                placeholder="Tell us about your products"></textarea>
+
+
+            <label class="form-checkbox">
+
+                <input
+                    type="checkbox"
+                    required>
+
+                <span>
+                    I agree to be contacted about
+                    seller onboarding.
+                </span>
+
+            </label>
+
+
+            <button
+                class="primary-btn"
+                type="submit">
+
+                Submit Seller Request
+
+            </button>
+
+        </form>
+
+    </div>
+
+</div>
+
+
+
+<!-- =====================================================
+     CREATOR REGISTRATION MODAL
+===================================================== -->
+
+<div class="modal"
+     id="creatorModal"
+     aria-hidden="true">
+
+    <div class="modal-card form-card">
+
+        <button class="modal-close"
+                onclick="closeModal('creatorModal')">
+
+            ×
+
+        </button>
+
+
+        <span class="section-label">
+            CREATOR PROGRAM
+        </span>
+
+
+        <h2>
+            Become a VIIBGYOR creator.
+        </h2>
+
+
+        <p>
+            Build an audience around products,
+            reels and live shopping.
+        </p>
+
+
+        <form onsubmit="submitCreatorForm(event)">
+
+
+            <input
+                required
+                type="text"
+                placeholder="Creator name">
+
+
+            <input
+                required
+                type="text"
+                placeholder="Instagram / YouTube handle">
+
+
+            <input
+                required
+                type="tel"
+                placeholder="Mobile number">
+
+
+            <input
+                required
+                type="email"
+                placeholder="Email address">
+
+
+            <select required>
+
+                <option value="">
+                    Main content category
+                </option>
+
+                <option>
+                    Fashion
+                </option>
+
+                <option>
+                    Sneakers
+                </option>
+
+                <option>
+                    Beauty
+                </option>
+
+                <option>
+                    Collectibles
+                </option>
+
+                <option>
+                    Lifestyle
+                </option>
+
+                <option>
+                    Other
+                </option>
+
+            </select>
+
+
+            <textarea
+                placeholder="Tell us about your content"></textarea>
+
+
+            <button
+                class="primary-btn"
+                type="submit">
+
+                Apply as Creator
+
+            </button>
+
+        </form>
+
+    </div>
+
+</div>
+<!-- =====================================================
+     LIVE SHOPPING MODAL
+===================================================== -->
+
+<div class="modal"
+     id="liveModal"
+     aria-hidden="true">
+
+    <div class="modal-card live-modal-card">
+
+        <button class="modal-close"
+                onclick="closeModal('liveModal')">
+
+            ×
+
+        </button>
+
+
+        <div class="live-modal-top">
+
+            <span class="live-now">
+                ● LIVE
+            </span>
+
+            <span>
+                2.4K watching
+            </span>
+
+        </div>
+
+
+        <h2 id="liveTitle">
+            Live Shopping
+        </h2>
+
+
+        <div class="live-screen">
+
+            <div class="live-screen-logo">
+                VIIBGYOR
+            </div>
+
+            <span>
+                LIVE SHOPPING
+            </span>
+
+        </div>
+
+
+        <div class="live-product">
+
+            <div>
+
+                <span>
+                    FEATURED PRODUCT
+                </span>
+
+                <h3>
+                    Limited Drop
+                </h3>
+
+                <strong>
+                    ₹1,999
+                </strong>
+
+            </div>
+
+
+            <button class="primary-btn"
+                    onclick="openProduct(1)">
+
+                Buy Now
+
+            </button>
+
+        </div>
+
+
+        <div class="live-chat">
+
+            <div class="chat-message">
+
+                <strong>
+                    Buyer
+                </strong>
+
+                <p>
+                    Is size M available?
+                </p>
+
+            </div>
+
+
+            <div class="chat-message">
+
+                <strong>
+                    Seller
+                </strong>
+
+                <p>
+                    Yes, size M is available.
+                </p>
+
+            </div>
+
+
+            <div class="chat-message">
+
+                <strong>
+                    Buyer
+                </strong>
+
+                <p>
+                    How fast is delivery?
+                </p>
+
+            </div>
+
+        </div>
+
+
+        <div class="live-chat-input">
+
+            <input
+                type="text"
+                placeholder="Ask something...">
+
+            <button
+                onclick="showToast('Live chat will be connected to the backend.')">
+
+                Send
+
+            </button>
+
+        </div>
+
+    </div>
+
+</div>
+
+
+
+<!-- =====================================================
+     REEL MODAL
+===================================================== -->
+
+<div class="modal"
+     id="reelModal"
+     aria-hidden="true">
+
+    <div class="modal-card reel-modal-card">
+
+        <button class="modal-close"
+                onclick="closeModal('reelModal')">
+
+            ×
+
+        </button>
+
+
+        <span class="section-label">
+            REEL
+        </span>
+
+
+        <h2 id="reelTitle">
+            Product Reel
+        </h2>
+
+
+        <div class="reel-modal-screen">
+
+            <div class="reel-modal-logo">
+                VIIBGYOR
+            </div>
+
+            <button
+                class="reel-modal-play">
+
+                ▶
+
+            </button>
+
+        </div>
+
+
+        <div class="reel-modal-info">
+
+            <div>
+
+                <span>
+                    FEATURED PRODUCT
+                </span>
+
+                <h3>
+                    Shop this discovery
+                </h3>
+
+            </div>
+
+
+            <button class="primary-btn"
+                    onclick="shopCurrentReel()">
+
+                Shop Now
+
+            </button>
+
+        </div>
+
+    </div>
+
+</div>
+
+
+
+<!-- =====================================================
+     AUCTION INFORMATION MODAL
+===================================================== -->
+
+<div class="modal"
+     id="auctionModal"
+     aria-hidden="true">
+
+    <div class="modal-card">
+
+        <button class="modal-close"
+                onclick="closeModal('auctionModal')">
+
+            ×
+
+        </button>
+
+
+        <span class="section-label">
+            LIVE AUCTIONS
+        </span>
+
+
+        <h2>
+            Bid on limited drops.
+        </h2>
+
+
+        <p>
+            VIIBGYOR auctions are planned as a future
+            marketplace feature.
+        </p>
+
+
+        <div class="auction-info-list">
+
+            <div>
+
+                <span>
+                    01
+                </span>
+
+                <div>
+
+                    <strong>
+                        Seller lists a product
+                    </strong>
+
+                    <p>
+                        An eligible seller creates
+                        a timed auction.
+                    </p>
+
+                </div>
+
+            </div>
+
+
+            <div>
+
+                <span>
+                    02
+                </span>
+
+                <div>
+
+                    <strong>
+                        Buyers participate
+                    </strong>
+
+                    <p>
+                        Eligible buyers can place
+                        valid bids during the auction.
+                    </p>
+
+                </div>
+
+            </div>
+
+
+            <div>
+
+                <span>
+                    03
+                </span>
+
+                <div>
+
+                    <strong>
+                        Auction closes
+                    </strong>
+
+                    <p>
+                        The highest valid bid at the
+                        end of the auction wins.
+                    </p>
+
+                </div>
+
+            </div>
+
+
+            <div>
+
+                <span>
+                    04
+                </span>
+
+                <div>
+
+                    <strong>
+                        Secure settlement
+                    </strong>
+
+                    <p>
+                        Payment and settlement will be
+                        handled through secure backend
+                        infrastructure.
+                    </p>
+
+                </div>
+
+            </div>
+
+        </div>
+
+
+        <button class="primary-btn"
+                onclick="closeModal('auctionModal')">
+
+            Got it
+
+        </button>
+
+    </div>
+
+</div>
+
+
+
+<!-- =====================================================
+     CHECKOUT MODAL
+===================================================== -->
+
+<div class="modal"
+     id="checkoutModal"
+     aria-hidden="true">
+
+    <div class="modal-card form-card">
+
+        <button class="modal-close"
+                onclick="closeModal('checkoutModal')">
+
+            ×
+
+        </button>
+
+
+        <span class="section-label">
+            CHECKOUT
+        </span>
+
+
+        <h2>
+            Complete your order.
+        </h2>
+
+
+        <p>
+            This is a frontend checkout interface.
+            Secure payment integration will be added
+            before production launch.
+        </p>
+
+
+        <form onsubmit="submitCheckout(event)">
+
+
+            <input
+                required
+                type="text"
+                placeholder="Full name">
+
+
+            <input
+                required
+                type="tel"
+                placeholder="Mobile number">
+
+
+            <input
+                required
+                type="text"
+                placeholder="House / Flat / Building">
+
+
+            <input
+                required
+                type="text"
+                placeholder="Street / Area">
+
+
+            <div class="form-row">
+
+                <input
+                    required
+                    type="text"
+                    placeholder="City">
+
+
+                <input
+                    required
+                    type="text"
+                    placeholder="PIN code">
+
+            </div>
+
+
+            <select required>
+
+                <option value="">
+                    Select payment method
+                </option>
+
+                <option>
+                    UPI
+                </option>
+
+                <option>
+                    Card
+                </option>
+
+                <option>
+                    Net Banking
+                </option>
+
+                <option>
+                    Cash on Delivery
+                </option>
+
+            </select>
+
+
+            <button
+                class="primary-btn"
+                type="submit">
+
+                Confirm Order
+
+            </button>
+
+        </form>
+
+    </div>
+
+</div>
+
+
+
+<!-- =====================================================
+     ORDER SUCCESS MODAL
+===================================================== -->
+
+<div class="modal"
+     id="successModal"
+     aria-hidden="true">
+
+    <div class="modal-card success-card">
+
+        <div class="success-icon">
+            ✓
+        </div>
+
+
+        <span class="section-label">
+            ORDER RECEIVED
+        </span>
+
+
+        <h2>
+            Your order is confirmed.
+        </h2>
+
+
+        <p>
+            Your order request has been recorded
+            in this demo experience.
+        </p>
+
+
+        <div class="order-number">
+
+            <span>
+                ORDER ID
+            </span>
+
+            <strong id="orderId">
+                VY-2026-0001
+            </strong>
+
+        </div>
+
+
+        <button class="primary-btn"
+                onclick="closeModal('successModal')">
+
+            Continue Shopping
+
+        </button>
+
+    </div>
+
+</div>
+
+
+
+<!-- =====================================================
+     TOAST NOTIFICATION
+===================================================== -->
+
+<div id="toast"
+     class="toast"
+     role="status"
+     aria-live="polite">
+
+</div>
+
+
+
+<!-- =====================================================
+     GLOBAL DEMO NOTICE
+===================================================== -->
+
+<div class="demo-bar">
+
+    <span>
+        VIIBGYOR is currently a marketplace frontend
+        foundation. Seller accounts, payments, orders,
+        messaging, live streaming and auctions require
+        secure backend infrastructure before production.
+    </span>
+
+</div>
+
+
+
+<!-- =====================================================
+     JAVASCRIPT
+===================================================== -->
+
+<script src="script.js"></script>
+
 
 </body>
-  </html>
+
+</html>
